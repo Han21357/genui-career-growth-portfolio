@@ -13,10 +13,17 @@ GitHub Pages 中发布的是对外展示副本，已移除特定平台名称、�
 核心设计：
 
 - 以“目标诊断 → 理解建构 → 练习计划 → 实战转化”串联学习与职业成长。
+- 新增“学习闭环 → 证据转译 → 职业闭环”的推荐演示故事线；它只是展示入口，四阶段 21 项功能卡仍可独立进入。
 - 使用 Artifact 承载可操作、可验证、可继续的生成式界面。
 - 将用户确认后的结果写回能力、计划、材料、面试与职业证据状态。
 - 覆盖资料学习、岗位匹配、简历证据、模拟面试、模拟考试、阶段复盘等多类场景。
 - 单文件纯 HTML/CSS/JavaScript 原型，无外部依赖，可直接本地运行。
+
+设计与校验材料：
+
+- [`docs/demo-storyline.md`](docs/demo-storyline.md)：对外演示故事线与元宝主模型进入 GenUI 的决策链。
+- [`docs/ux-reference-audit.md`](docs/ux-reference-audit.md)：开源交互方案调研与采用边界。
+- [`docs/ux-validation-report.md`](docs/ux-validation-report.md)：响应式、状态、可访问性与完整动线校验。
 
 ### 2. 非 K12 市场调研与商业化分析
 
@@ -48,11 +55,17 @@ python3 -m http.server 8000
 .
 ├── demo/
 │   └── index.html
+├── docs/
+│   ├── demo-storyline.md
+│   ├── ux-reference-audit.md
+│   └── ux-validation-report.md
 ├── research/
 │   └── competitive-analysis.html
+├── scripts/
+│   └── validate-demo.mjs
 └── README.md
 ```
 
 ## 说明
 
-本仓库为私密作品集，用于产品方案展示、求职沟通与后续迭代。Demo 中的专业数据、案例与识别结果仅用于原型演示。
+本仓库为公开作品集，用于产品方案展示、求职沟通与后续迭代。Demo 中的专业数据、案例与识别结果均为受控示例，不代表真实服务调用或个人结论。
