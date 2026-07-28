@@ -254,7 +254,7 @@ body{background:linear-gradient(180deg,var(--bg2) 0%,#F7FBF8 260px,var(--bg) 100
 html.embed-report body{background:#F6FBF8}
 html.embed-report .page{max-width:none;padding:8px 10px}
 html.embed-report .navToggle,html.embed-report .sidebar,html.embed-report .navOverlay,html.embed-report .topBtn{display:none!important}
-html.embed-report .hero{display:none}
+html.embed-report .hero{display:block;padding:22px 24px;border-radius:18px;margin-bottom:12px;box-shadow:none}
 html.embed-report .hero:before{right:-80px;top:-120px;width:220px;height:220px;opacity:.65}
 html.embed-report .heroGrid{grid-template-columns:1fr;gap:10px}
 html.embed-report .hero h2{font-size:24px;line-height:1.22;margin:6px 0 8px;letter-spacing:0}
@@ -299,8 +299,9 @@ html.embed-report .modeObservation{border-radius:13px;padding:11px}
 /* ===== FUNCTION EXTENSION EXPORT MARKER ===== */
 .function-export-banner{margin:0 0 16px;padding:18px 20px;border-radius:24px;background:linear-gradient(135deg,#EAF9F0,#E8F8FA);border:1px solid #CDEEDB;box-shadow:0 14px 34px rgba(7,193,96,.10);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
 .function-export-banner small{display:block;font-size:11px;font-weight:900;letter-spacing:.8px;color:#08764C;margin-bottom:5px}.function-export-banner h3{font-size:20px;margin:0 0 6px}.function-export-banner p{font-size:13px;line-height:1.65;color:#5E7467;margin:0}.function-export-banner a{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border-radius:999px;background:#07C160;color:#fff;font-size:13px;font-weight:900;box-shadow:0 10px 24px rgba(7,193,96,.23);white-space:nowrap}.new-chapter-flag{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:#07C160;color:#fff;font-size:10px;font-weight:900;margin-left:6px;vertical-align:middle}
+.report-chapter-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.function-export-banner .secondary{background:#fff;color:#08764C;border:1px solid #BDE6CF;box-shadow:none}.chapter-marker{display:flex;align-items:center;gap:14px;margin:18px 2px 12px;padding:15px 18px;border-radius:18px;background:#0F2E20;color:#fff}.chapter-marker span{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:12px;background:#07C160;font-size:13px;font-weight:900}.chapter-marker small{display:block;color:#7FE6A8;font-size:10px;font-weight:900;letter-spacing:.8px}.chapter-marker b{display:block;margin-top:3px;font-size:18px}
 @media(max-width:760px){.function-export-banner{grid-template-columns:1fr}.function-export-banner a{width:100%}}
-html.embed-report .function-export-banner{padding:12px 14px;border-radius:14px;margin-bottom:10px}html.embed-report .function-export-banner h3{font-size:16px}html.embed-report .function-export-banner p{font-size:11.5px}html.embed-report .function-export-banner a{padding:7px 11px;font-size:11px}
+html.embed-report .function-export-banner{padding:15px 16px;border-radius:15px;margin-bottom:12px}html.embed-report .function-export-banner h3{font-size:20px}html.embed-report .function-export-banner p{font-size:13.5px;line-height:1.65}html.embed-report .function-export-banner a{padding:9px 12px;font-size:12.5px}
 </style>
 <script>
 if(new URLSearchParams(location.search).get("embed")==="1"){
@@ -326,7 +327,72 @@ if(new URLSearchParams(location.search).get("embed")==="1"){
 @media(max-width:1380px){.func-evolution,.func-architecture{grid-template-columns:1fr 1fr}.func-mech-grid,.func-gap-grid{grid-template-columns:1fr 1fr}.func-org-grid{grid-template-columns:1fr}.func-impact,.func-priority,.func-task-layout{grid-template-columns:1fr}.func-source-grid{grid-template-columns:1fr 1fr}.func-funnel{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:1380px){.product-intent,.portfolio-proof{grid-template-columns:1fr}.story-rail{grid-template-columns:repeat(5,1fr)}}
 @media(max-width:820px){.func-hero-grid,.func-evolution,.func-mech-grid,.func-gap-grid,.func-architecture,.func-source-grid,.func-metrics{grid-template-columns:1fr}.func-task-steps{grid-template-columns:1fr}.func-artifact-grid{grid-template-columns:1fr}.func-funnel{grid-template-columns:1fr}.func-funnel-node:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px}.func-era:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px}.func-kpis,.intent-principles,.story-persona,.proof-grid{grid-template-columns:1fr}.story-rail{grid-template-columns:1fr}.story-step:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-15px}}
-html.embed-report .func-hero{border-radius:15px;padding:15px}.embed-report .func-hero h4{font-size:18px}.embed-report .func-evolution,.embed-report .func-mech-grid,.embed-report .func-gap-grid{gap:7px}.embed-report .func-era,.embed-report .func-mech,.embed-report .func-gap,.embed-report .func-task-main,.embed-report .func-demo-card{border-radius:13px;padding:11px}.embed-report .func-mech{min-height:0}.embed-report .func-task-tabs{overflow:auto;flex-wrap:nowrap;padding-bottom:5px}.embed-report .func-task-tab{white-space:nowrap}.embed-report .func-source-grid{grid-template-columns:1fr 1fr}
+html.embed-report .func-hero{border-radius:15px;padding:18px}.embed-report .func-hero h4{font-size:22px}.embed-report .func-hero p{font-size:14px}.embed-report .func-evolution,.embed-report .func-mech-grid,.embed-report .func-gap-grid{gap:10px}.embed-report .func-era,.embed-report .func-mech,.embed-report .func-gap,.embed-report .func-task-main,.embed-report .func-demo-card{border-radius:14px;padding:14px}.embed-report .func-mech{min-height:0}.embed-report .func-task-tabs{overflow:auto;flex-wrap:nowrap;padding-bottom:5px}.embed-report .func-task-tab{white-space:nowrap;font-size:13px}.embed-report .func-source-grid{grid-template-columns:1fr 1fr}
+
+/* 嵌入作品集后的阅读尺度与信息架构 */
+html.embed-report .page{padding:12px 14px}
+html.embed-report .section{padding:20px;margin-bottom:14px}
+html.embed-report .section h3{font-size:24px}
+html.embed-report .sub{font-size:14px;line-height:1.7}
+html.embed-report .tag{font-size:11.5px}
+html.embed-report .sum h4,
+html.embed-report .panel h4,
+html.embed-report .func-org h5,
+html.embed-report .func-era h5,
+html.embed-report .func-mech h5,
+html.embed-report .func-layer h5{font-size:16px}
+html.embed-report .sum p,
+html.embed-report .dim p,
+html.embed-report .leg p,
+html.embed-report .hl p,
+html.embed-report .call p,
+html.embed-report .y p,
+html.embed-report .func-org p,
+html.embed-report .func-era p,
+html.embed-report .func-mech .definition,
+html.embed-report .func-layer>p{font-size:13px;line-height:1.7}
+html.embed-report table,
+html.embed-report .func-table,
+html.embed-report .func-priority-table table{font-size:13px}
+html.embed-report .dataTable th,
+html.embed-report .dataTable td,
+html.embed-report .func-table th,
+html.embed-report .func-table td{padding:10px 9px;line-height:1.6}
+html.embed-report .product-intent{grid-template-columns:1fr}
+html.embed-report .intent-card,
+html.embed-report .story-card,
+html.embed-report .proof-card{padding:18px;border-radius:16px}
+html.embed-report .intent-card h4{font-size:24px}
+html.embed-report .intent-card p,
+html.embed-report .positioning-box p{font-size:14px;line-height:1.75}
+html.embed-report .intent-principles div,
+html.embed-report .story-persona span,
+html.embed-report .story-caption{font-size:12.5px;line-height:1.65}
+html.embed-report .story-persona b{font-size:11.5px}
+html.embed-report .story-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+html.embed-report .story-step{display:grid;grid-template-columns:48px 1fr;grid-template-areas:"no title" "no copy";column-gap:10px;align-items:center;min-height:76px;padding:12px 13px}
+html.embed-report .story-step:not(:last-child):after{display:none}
+html.embed-report .story-step em{grid-area:no;align-self:stretch;display:flex;align-items:center;justify-content:center;border-right:1px solid #DDEAE2;font-size:10px}
+html.embed-report .story-step b{grid-area:title;font-size:15px;margin:0 0 3px}
+html.embed-report .story-step span{grid-area:copy;font-size:13px;line-height:1.55}
+html.embed-report .story-step.bridge em{border-color:rgba(255,255,255,.18)}
+html.embed-report .func-architecture{grid-template-columns:1fr 1fr;gap:10px}
+html.embed-report .func-layer{min-height:0;padding:15px}
+html.embed-report .func-layer-item{font-size:12px;line-height:1.55}
+html.embed-report .func-layer-item b{font-size:12.5px}
+html.embed-report .chapter-marker{margin-top:16px}
+html.embed-report .model,
+html.embed-report .companyShowcases,
+html.embed-report .companyBlock,
+html.embed-report .companyHeadText{min-width:0;max-width:100%}
+html.embed-report .companyShots,
+html.embed-report .shotGrid{width:100%;max-width:100%;overscroll-behavior-x:contain}
+@media(max-width:460px){
+  html.embed-report .story-rail,
+  html.embed-report .func-architecture,
+  html.embed-report .func-source-grid{grid-template-columns:1fr}
+  html.embed-report .report-chapter-actions{justify-content:flex-start}
+}
 </style>
 
 </head>
@@ -402,37 +468,8 @@ html.embed-report .func-hero{border-radius:15px;padding:15px}.embed-report .func
 </div>
 </div>
 </section>
-<div class="function-export-banner" id="function-entry"><div><small>本次续写内容已写入同一份报告</small><h3>第二篇：功能竞争与 GenUI 产品机会</h3><p>新增内容位于商业模式与关键判断之后，包含功能竞争演化、四条用户任务链、六类核心机制、功能经济性、市场空白和元宝功能优先级。</p></div><a href="#function-shift">直接进入新增功能篇 →</a></div>
-<section class="section" id="product-intent">
-<div class="st"><div><div class="tag">FROM INSIGHT TO PRODUCT</div><h3>从市场判断到产品发心：让用户完成下一步，而不是得到更长的回答</h3></div><div class="sub">这一篇不仅回答“市场上有哪些功能”，也说明研究如何转化为职路 AI 的定位、故事线、取舍与验证方式。</div></div>
-<div class="product-intent">
-<article class="intent-card">
-<small>PRODUCT INTENT / 产品发心</small>
-<h4>职业成长的困难，往往不是缺少知识，而是缺少一条能被持续推进、被验证、被接力的路径。</h4>
-<p>通用 AI 擅长即时回答，教育产品擅长提供内容与练习，招聘工具擅长匹配岗位；但真实用户会在“学什么、是否学会、如何证明、怎样用于求职”之间反复断档。职路 AI 的设计发心，是把这些断点组织成连续任务：每一次对话都明确当前目标，每一次界面操作都形成可核验结果，每一次结果都能改变下一步推荐。</p>
-<div class="intent-principles"><div><b>不卖答案长度</b>优先缩短从问题到有效行动的距离。</div><div><b>不制造伪进度</b>掌握度必须来自作答、操作或证据。</div><div><b>不把用户困在看板</b>复杂界面按任务临时出现，完成后回到对话。</div><div><b>不承诺生产结果</b>原型先验证链路与判断，再验证真实业务指标。</div></div>
-</article>
-<article class="story-card">
-<small>POSITIONING / 产品定位</small>
-<div class="positioning-box"><b>一句话定位</b><p>面向时间有限、目标明确但学习与职业证据分散的转型者，职路 AI 是一套由对话触发的成长任务编排层，把目标、材料、练习、能力差距和项目证据连接为可恢复的连续路径；相较通用聊天或单点学习/求职工具，它的差异在于“学习结果可以继续被翻译为职业证据”。</p></div>
-<div class="story-persona"><div><b>典型用户</b><span>有真实项目经历，准备转向 AI 产品或模型评测岗位。</span></div><div><b>现实约束</b><span>每周只有约 3 小时，材料零散，不知道优先补什么。</span></div><div><b>成功标准</b><span>形成经练习验证的能力提升，以及可用于简历和面试的证据。</span></div></div>
-<small>DEMO STORY / 推荐演示故事线</small>
-<div class="story-rail">
-<div class="story-step"><em>01</em><b>目标诊断</b><span>确认岗位、时间和起点</span></div>
-<div class="story-step"><em>02</em><b>资料导入</b><span>提取项目结构与知识缺口</span></div>
-<div class="story-step"><em>03</em><b>概念建构</b><span>用可操作界面理解关键机制</span></div>
-<div class="story-step"><em>04</em><b>刻意练习</b><span>基于错因生成下一题</span></div>
-<div class="story-step"><em>05</em><b>阶段校验</b><span>确认掌握与待补证据</span></div>
-<div class="story-step bridge"><em>06 / BRIDGE</em><b>证据翻译</b><span>把学习结果映射为岗位能力</span></div>
-<div class="story-step"><em>07</em><b>岗位匹配</b><span>识别差距与优先任务</span></div>
-<div class="story-step"><em>08</em><b>案例表达</b><span>补齐指标、取舍和贡献</span></div>
-<div class="story-step"><em>09</em><b>模拟面试</b><span>连续追问并局部重答</span></div>
-<div class="story-step"><em>10</em><b>成长归档</b><span>沉淀证据并推荐下一步</span></div>
-</div>
-<div class="story-caption"><b>故事线只是推荐参观路径，不是功能删减。</b> 四阶段、21 个可见能力仍可独立进入；演示路线的作用，是让观察者在有限时间内看懂同一份用户状态如何从学习链路跨越到职业链路。</div>
-</article>
-</div>
-</section>
+<div class="function-export-banner" id="function-entry"><div><small>FULL REPORT / 完整报告</small><h3>从市场与商业模式判断，走到 GenUI 产品机会</h3><p>第一篇保留市场格局、产业链、四类运营模式与商业化判断；第二篇进一步说明功能竞争、产品发心、任务链、核心机制和职路 AI 的设计取舍。</p></div><div class="report-chapter-actions"><a class="secondary" href="#chapter-market">从第一篇开始</a><a href="#chapter-product">进入第二篇 →</a></div></div>
+<div class="chapter-marker" id="chapter-market"><span>01</span><div><small>MARKET &amp; BUSINESS MODEL</small><b>第一篇｜市场格局、运营模式与商业化判断</b></div></div>
 <section class="section">
 <div class="st"><div><div class="tag">EXECUTIVE SUMMARY</div><h3>六条核心结论</h3></div><div class="sub">核心结论由竞品经营数据、产品链路和公开披露信息共同支撑。</div></div>
 <div class="grid6">
@@ -991,6 +1028,38 @@ html.embed-report .func-hero{border-radius:15px;padding:15px}.embed-report .func
 </div>
 </section>
 
+<div class="chapter-marker" id="chapter-product"><span>02</span><div><small>FUNCTION COMPETITION &amp; PRODUCT DESIGN</small><b>第二篇｜功能竞争、GenUI 产品机会与设计发心</b></div></div>
+<section class="section" id="product-intent">
+<div class="st"><div><div class="tag">FROM INSIGHT TO PRODUCT</div><h3>从市场判断到产品发心：让用户完成下一步，而不是得到更长的回答</h3></div><div class="sub">这一篇不仅回答“市场上有哪些功能”，也说明研究如何转化为职路 AI 的定位、故事线、取舍与验证方式。</div></div>
+<div class="product-intent">
+<article class="intent-card">
+<small>PRODUCT INTENT / 产品发心</small>
+<h4>职业成长的困难，往往不是缺少知识，而是缺少一条能被持续推进、被验证、被接力的路径。</h4>
+<p>通用 AI 擅长即时回答，教育产品擅长提供内容与练习，招聘工具擅长匹配岗位；但真实用户会在“学什么、是否学会、如何证明、怎样用于求职”之间反复断档。职路 AI 的设计发心，是把这些断点组织成连续任务：每一次对话都明确当前目标，每一次界面操作都形成可核验结果，每一次结果都能改变下一步推荐。</p>
+<div class="intent-principles"><div><b>不卖答案长度</b>优先缩短从问题到有效行动的距离。</div><div><b>不制造伪进度</b>掌握度必须来自作答、操作或证据。</div><div><b>不把用户困在看板</b>复杂界面按任务临时出现，完成后回到对话。</div><div><b>不承诺生产结果</b>原型先验证链路与判断，再验证真实业务指标。</div></div>
+</article>
+<article class="story-card">
+<small>POSITIONING / 产品定位</small>
+<div class="positioning-box"><b>一句话定位</b><p>面向时间有限、目标明确但学习与职业证据分散的转型者，职路 AI 是一套由对话触发的成长任务编排层，把目标、材料、练习、能力差距和项目证据连接为可恢复的连续路径；相较通用聊天或单点学习/求职工具，它的差异在于“学习结果可以继续被翻译为职业证据”。</p></div>
+<div class="story-persona"><div><b>典型用户</b><span>有真实项目经历，准备转向 AI 产品或模型评测岗位。</span></div><div><b>现实约束</b><span>每周只有约 3 小时，材料零散，不知道优先补什么。</span></div><div><b>成功标准</b><span>形成经练习验证的能力提升，以及可用于简历和面试的证据。</span></div></div>
+<small>DEMO STORY / 推荐演示故事线</small>
+<div class="story-rail">
+<div class="story-step"><em>01</em><b>目标诊断</b><span>确认岗位、时间和起点</span></div>
+<div class="story-step"><em>02</em><b>资料导入</b><span>提取项目结构与知识缺口</span></div>
+<div class="story-step"><em>03</em><b>概念建构</b><span>用可操作界面理解关键机制</span></div>
+<div class="story-step"><em>04</em><b>刻意练习</b><span>基于错因生成下一题</span></div>
+<div class="story-step"><em>05</em><b>阶段校验</b><span>确认掌握与待补证据</span></div>
+<div class="story-step bridge"><em>06 / BRIDGE</em><b>证据翻译</b><span>把学习结果映射为岗位能力</span></div>
+<div class="story-step"><em>07</em><b>岗位匹配</b><span>识别差距与优先任务</span></div>
+<div class="story-step"><em>08</em><b>案例表达</b><span>补齐指标、取舍和贡献</span></div>
+<div class="story-step"><em>09</em><b>模拟面试</b><span>连续追问并局部重答</span></div>
+<div class="story-step"><em>10</em><b>成长归档</b><span>沉淀证据并推荐下一步</span></div>
+</div>
+<div class="story-caption"><b>故事线只是推荐参观路径，不是功能删减。</b> 四阶段、21 个可见能力仍可独立进入；演示路线的作用，是让观察者在有限时间内看懂同一份用户状态如何从学习链路跨越到职业链路。</div>
+</article>
+</div>
+</section>
+
 <!-- ===== FUNCTION RESEARCH EXTENSION V1 ===== -->
 <section class="section" id="function-shift">
 <div class="st"><div><div class="tag">FUNCTION COMPETITION</div><h3>第二篇｜功能竞争从“覆盖更多”转向“围绕任务即时编排” <span class="new-chapter-flag">新增</span></h3></div><div class="sub">在题库、答疑、资料上传、错题和计划逐渐成为基础能力后，市场差异不再来自功能数量，而来自功能是否能理解当前任务、共享状态，并持续推动下一步。</div></div>
@@ -1207,7 +1276,7 @@ html.embed-report .func-hero{border-radius:15px;padding:15px}.embed-report .func
 <div class="portfolio-proof">
 <article class="proof-card">
 <small>DELIVERED &amp; CHECKED / 已交付与已校验</small>
-<div class="proof-grid"><div class="proof-metric"><b>4 / 21</b><span>4 个成长阶段、21 个可见能力，原功能入口完整保留</span></div><div class="proof-metric"><b>10</b><span>10 段推荐演示故事线，贯穿学习、证据翻译与职业转化</span></div><div class="proof-metric"><b>27 / 27</b><span>静态规则校验全部通过，并完成完整自动演示回归</span></div></div>
+<div class="proof-grid"><div class="proof-metric"><b>4 / 21</b><span>4 个成长阶段、21 个可见能力，原功能入口完整保留</span></div><div class="proof-metric"><b>10</b><span>10 段推荐演示故事线，贯穿学习、证据翻译与职业转化</span></div><div class="proof-metric"><b>29 / 29</b><span>静态规则校验全部通过，并完成完整自动演示回归</span></div></div>
 <div class="proof-list"><div><b>体验闭环：</b>支持自动演示、手动探索、暂停/继续、重新开始、退出故事和重置进度；故事线不会覆盖自由探索。</div><div><b>交互稳定性：</b>10 段自动路线可完整结束；关键弹层支持键盘焦点、Esc 关闭与状态恢复，控制台无警告和错误。</div><div><b>响应式验证：</b>覆盖常见桌面和小屏视口，保持手机体验区与报告区约 45:55 的视觉关系，无横向溢出。</div><div><b>项目形态：</b>当前为单文件前端高保真原型，并已通过公开页面部署；策略页与技术架构页用于解释主模型进入 GenUI 的判断链和状态写回机制。</div></div>
 </article>
 <article class="proof-card">

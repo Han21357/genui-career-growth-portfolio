@@ -7,6 +7,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const demoDir = path.join(root, "demo");
 const demoFile = path.join(demoDir, "index.html");
 const html = fs.readFileSync(demoFile, "utf8");
+const researchHtml = fs.readFileSync(path.join(root, "research", "competitive-analysis.html"), "utf8");
 const failures = [];
 const checks = [];
 
@@ -44,7 +45,10 @@ const stepsMatch = html.match(/const GUIDED_JOURNEY_STEPS=\[([\s\S]*?)\n\];/);
 const storyStepCount = stepsMatch ? (stepsMatch[1].match(/\{key:/g) || []).length : 0;
 check("故事线十阶段", storyStepCount === 10, `发现 ${storyStepCount} 个`);
 check("产品特征优先，故事线作为可选演示", html.includes("把复杂任务变成可操作、可验证、可继续的界面") && html.includes("GUIDED PRODUCT TOUR / 可选演示") && featureIds.every((id) => html.includes(id)));
-check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1"));
+check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260728-02"));
+const marketChapter = researchHtml.indexOf('id="chapter-market"');
+const productChapter = researchHtml.indexOf('id="chapter-product"');
+check("市场报告两篇完整且顺序正确", marketChapter >= 0 && productChapter > marketChapter && researchHtml.includes("第一篇｜市场格局、运营模式与商业化判断") && researchHtml.includes("第二篇｜功能竞争、GenUI 产品机会与设计发心"));
 
 const sceneStart = html.indexOf('<div class="panel active" id="panelDemo">');
 const sceneEnd = html.indexOf('<div class="panel" id="panelReport">');
@@ -79,7 +83,7 @@ check("场景区无研发口吻", bannedVisible.length === 0, bannedVisible.join
 ].forEach((token) => check(`关键机制保留：${token}`, html.includes(token)));
 
 check("画幅变量存在", ["--phone-height", "--phone-ratio", "--left-panel-width"].every((token) => html.includes(token)));
-check("构建标识存在", html.includes('content="career-genui-product-first-20260728-01"'));
+check("构建标识存在", html.includes('content="career-genui-report-structure-20260728-02"'));
 
 for (const item of checks) {
   console.log(`${item.ok ? "PASS" : "FAIL"}  ${item.name}${item.detail ? ` — ${item.detail}` : ""}`);
