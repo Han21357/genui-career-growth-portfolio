@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="career-genui-report-structure-20260728-02" name="build-id"/>
+<meta content="career-genui-pm-value-map-20260728-03" name="build-id"/>
 <link href="data:," rel="icon"/>
 <title>Career GenUI · 职路成长交互作品</title>
 <style>
@@ -750,6 +750,30 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+/* PM value map: audience, job, benefit and validation boundary */
+.pm-audience-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.pm-audience-card{padding:17px;border:1px solid #dbe9e0;border-radius:12px;background:#fff}
+.pm-audience-card.primary{background:linear-gradient(145deg,#0f402c,#146b43);border-color:#146b43;color:#fff}
+.pm-audience-card small,.pm-benefit-card small{display:block;margin-bottom:7px;font-size:10px;font-weight:900;letter-spacing:.55px;color:#087a4c}
+.pm-audience-card.primary small{color:#7ce7ab}
+.pm-audience-card h3{margin:0 0 7px;font-size:16px;line-height:1.45}
+.pm-audience-card p{margin:0;color:#617469}
+.pm-audience-card.primary p{color:#d8eee2}
+.pm-audience-card strong{display:block;margin-top:10px;font-size:12.5px;line-height:1.65;color:#244333}
+.pm-audience-card.primary strong{color:#fff}
+.pm-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.pm-benefit-card{padding:15px;border-radius:11px;background:#f4f8f5;border:1px solid #e0e9e3}
+.pm-benefit-card b{display:block;margin-bottom:5px;font-size:14px;color:#183c29}
+.pm-benefit-card p{margin:0;color:#607268}
+.pm-hypothesis-note{margin-top:12px;padding:14px 15px;border-left:4px solid #d7962f;border-radius:0 10px 10px 0;background:#fff8eb;color:#6d572f}
+.pm-hypothesis-note b{color:#704a0e}
+#panelReport .pm-audience-card p,#panelReport .pm-benefit-card p,#panelReport .pm-hypothesis-note{font-size:13px!important;line-height:1.7!important}
+#panelReport .pm-value-table{min-width:1080px}
+#panelReport .pm-value-table th,#panelReport .pm-value-table td{font-size:13px!important;line-height:1.65!important}
+@media(max-width:1280px){
+  .pm-audience-grid,.pm-benefit-grid{grid-template-columns:1fr}
+}
 </style>
 
 </head>
@@ -772,12 +796,33 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 <section class="journey-panel" data-stage-panel="apply"><div class="journey-panel-head"><div><h2>把能力转化成真实场景表现</h2><p>通过案例、表达和面试训练，把学习结果转成职业证据。</p></div><span>4 项能力</span></div><div class="journey-grid"><button class="journey-card" data-open-feature="adaptive_interview"><span class="journey-card-top"><span class="journey-card-tag">面试</span><span class="journey-card-arrow">›</span></span><b>自适应面试训练</b><span>连续追问、证据评分并生成补强任务。</span></button><button class="journey-card" data-open-feature="case_roundtable"><span class="journey-card-top"><span class="journey-card-tag">案例</span><span class="journey-card-arrow">›</span></span><b>多角色案例研讨</b><span>归纳共识、争议、缺失证据和决策风险。</span></button><button class="journey-card" data-open-feature="situational_roleplay"><span class="journey-card-top"><span class="journey-card-tag">表达</span><span class="journey-card-arrow">›</span></span><b>三分钟情境表达</b><span>针对具体表达缺口进行短时角色练习。</span></button><button class="journey-card" data-open-feature="resume_evidence_editor"><span class="journey-card-top"><span class="journey-card-tag">简历</span><span class="journey-card-arrow">›</span></span><b>简历量化改写</b><span>把项目过程重构为可验证的成果证据。</span></button></div></section>
 <section class="journey-live"><div class="journey-live-card"><small>LIVE GROWTH STATE</small><h3>当前成长状态</h3><div class="journey-live-metrics"><div><b>45%</b><span>重点能力</span></div><div><b>3</b><span>今日任务</span></div><div><b>2</b><span>待补证据</span></div></div></div><div class="journey-live-card"><small>NEXT BEST ACTION</small><h3>推荐接力</h3><div class="journey-next"><button data-open-feature="job_match_workspace"><span>先完成岗位匹配</span><span>→</span></button><button data-open-feature="material_intake"><span>导入一份真实材料</span><span>›</span></button></div></div></section><button class="journey-report" data-console-page="report"><span>查看 GenUI 模块运行策略</span><span>›</span></button></div>
 
-<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260728-02" title="市场调研报告"></iframe></div>
+<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260728-03" title="市场调研报告"></iframe></div>
 
 <div class="panel" id="panelReport">
 <section class="strategy2-hero">
 <div><span class="strategy2-kicker">GENUI OPERATING STRATEGY</span><h2>职路 AI GenUI 模块运行机制与调度策略</h2><p>GenUI 承担职路 AI 对话链路中的动态任务执行。系统结合当前任务、用户状态、会话进度与可信上下文，判断是否生成界面、选择交互形态、组织模型与工具执行，并将用户确认后的有效结果写回成长状态。具体功能共享同一套触发、编排、执行、提交、接力与降级机制。</p></div>
 <div class="strategy2-summary"><div><small>核心闭环</small><b>操作结果驱动下一步</b><span>界面完成任务、状态保存结果、编排服务继续推进。</span></div><div><small>触发判断</small><b>5 类信号</b><span>操作需求、结构稳定性、状态价值、风险和端侧空间。</span></div><div><small>生命周期</small><b>6 个阶段</b><span>创建、草稿、校验、提交、接力、恢复。</span></div><div><small>共享底座</small><b>5 套引擎</b><span>文档、轨迹、测评、情境和证据状态。</span></div></div>
+</section>
+
+<section class="strategy2-section" id="strategy-user-value"><div class="strategy2-title"><div class="strategy2-title-main"><span class="strategy2-title-no">00</span><h2>用户、任务与收益边界</h2></div><p>先回答“为谁解决哪类连续任务”，再决定何时调用 GenUI。产品收益必须能被行为和结果验证，不能用功能数量或回答长度替代。</p></div>
+<div class="pm-audience-grid">
+<article class="pm-audience-card primary"><small>PRIMARY / 首发核心用户</small><h3>高意图、时间受限的成人学习者与职业转型者</h3><p>考试或求职目标明确，但资料分散、可投入时间有限，也难以判断此刻最该补什么。</p><strong>关键任务：一次会话内明确起点，完成最小有效任务，并清楚知道下一步。</strong></article>
+<article class="pm-audience-card"><small>HIGH-VALUE SCENARIO / 高价值场景</small><h3>有真实经历、缺少证据翻译的求职者</h3><p>并非没有项目，而是不知道如何把学习结果、项目过程与决策证据转成岗位语言。</p><strong>关键任务：岗位差距 → 补强练习 → 证据写回 → 面试表达。</strong></article>
+<article class="pm-audience-card"><small>FUTURE PARTNER / 后续验证</small><h3>高校、职校、培训与就业服务机构</h3><p>希望规模化交付可追踪的学习与求职训练，同时降低重复讲解、人工跟进与报告整理成本。</p><strong>定位边界：潜在合作与采购方，不作为首发冷启动用户。</strong></article>
+</div>
+<div class="pm-benefit-grid">
+<article class="pm-benefit-card"><small>USER VALUE / 用户收益假设</small><b>少找入口、少重复描述、每次都有下一步</b><p>用连续状态替代散落在聊天、题库、文档和简历工具之间的手工搬运，并保留可核验的成长证据。</p></article>
+<article class="pm-benefit-card"><small>PRODUCT VALUE / 产品收益假设</small><b>从一次使用转向跨模块接力</b><p>重点观察首次有效任务完成、确认写回、下一步采纳与跨模块继续，而非只观察打开率和对话轮次。</p></article>
+<article class="pm-benefit-card"><small>DELIVERY VALUE / 交付收益假设</small><b>复用能力底座，降低新增场景边际成本</b><p>通过 Artifact、Reducer、状态协议和可信执行复用交互与数据，不为每个职业场景重复开发一套孤立页面。</p></article>
+</div>
+<div class="strategy2-table-wrap"><table class="strategy2-table pm-value-table"><thead><tr><th>功能模块</th><th>优先用户与场景</th><th>要完成的用户任务</th><th>预期用户收益</th><th>产品衡量指标</th><th>在增长链路中的作用</th></tr></thead><tbody>
+<tr><th><span class="stage-badge">目标诊断</span></th><td>首次进入、目标或起点不清晰</td><td>确认目标、时间、现状与最小起点</td><td><strong>更快从“我该学什么”进入可执行任务</strong></td><td>诊断完成率、推荐采纳率、首次有效任务耗时</td><td>降低激活门槛，形成个性化入口</td></tr>
+<tr><th><span class="stage-badge blue">理解建构</span></th><td>面对复杂概念、材料或可信来源</td><td>拆解材料、建立结构并完成独立校验</td><td><strong>缩短首次理解时间，知道依据从哪里来</strong></td><td>独立校验通过率、来源展开率、错误概念修正率</td><td>建立可信度，承接高意图资料任务</td></tr>
+<tr><th><span class="stage-badge amber">练习计划</span></th><td>时间有限、错因反复、计划难坚持</td><td>按错因生成练习，并随结果调整任务</td><td><strong>把有限时间用在真正的能力缺口上</strong></td><td>任务完成率、错因复发率、计划调整接受率</td><td>形成持续使用理由与阶段反馈</td></tr>
+<tr><th><span class="stage-badge dark">实战转化</span></th><td>有项目经历、正在岗位匹配或面试</td><td>把学习与项目过程转成简历、案例和回答证据</td><td><strong>让成长结果可表达、可复用、可继续打磨</strong></td><td>证据写回率、案例完成率、模拟面试完成率</td><td>连接学习价值与高价值职业结果</td></tr>
+<tr><th>共享编排层</th><td>所有处于连续任务中的活跃用户</td><td>在正确时机触发、恢复和接力合适组件</td><td><strong>减少找功能和重复输入，保持任务连续</strong></td><td>触发接受率、恢复成功率、跨模块接力率、单次有效写回成本</td><td>沉淀差异化状态资产并控制交付成本</td></tr>
+</tbody></table></div>
+<div class="pm-hypothesis-note"><b>收益边界：</b>以上均为待验证的产品假设。当前 Demo 证明的是功能覆盖、交互链路与信息架构可行性，不代表已经取得留存、付费、就业或提分结果；真实收益需要通过可用性测试、灰度数据与长期结果共同验证。</div>
 </section>
 
 <section class="strategy2-section"><div class="strategy2-title"><div class="strategy2-title-main"><span class="strategy2-title-no">01</span><h2>模块定位与完整运行链路</h2></div><p>GenUI 位于对话理解与长期成长状态之间，负责将自然语言任务转换成可操作、可验证、可继续的界面。</p></div>

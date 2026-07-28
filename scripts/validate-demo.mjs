@@ -45,10 +45,13 @@ const stepsMatch = html.match(/const GUIDED_JOURNEY_STEPS=\[([\s\S]*?)\n\];/);
 const storyStepCount = stepsMatch ? (stepsMatch[1].match(/\{key:/g) || []).length : 0;
 check("故事线十阶段", storyStepCount === 10, `发现 ${storyStepCount} 个`);
 check("产品特征优先，故事线作为可选演示", html.includes("把复杂任务变成可操作、可验证、可继续的界面") && html.includes("GUIDED PRODUCT TOUR / 可选演示") && featureIds.every((id) => html.includes(id)));
-check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260728-02"));
+check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260728-03"));
 const marketChapter = researchHtml.indexOf('id="chapter-market"');
 const productChapter = researchHtml.indexOf('id="chapter-product"');
 check("市场报告两篇完整且顺序正确", marketChapter >= 0 && productChapter > marketChapter && researchHtml.includes("第一篇｜市场格局、运营模式与商业化判断") && researchHtml.includes("第二篇｜功能竞争、GenUI 产品机会与设计发心"));
+check("策略页包含用户任务收益地图", html.includes('id="strategy-user-value"') && ["首发核心用户", "高价值场景", "后续验证", "产品衡量指标"].every((token) => html.includes(token)));
+check("市场页包含目标用户与模块价值地图", researchHtml.includes('id="user-value-map"') && ["核心用户", "高价值时刻", "后续合作方", "产品与经营角色"].every((token) => researchHtml.includes(token)));
+check("收益以假设和验证边界表达", html.includes("以上均为待验证的产品假设") && researchHtml.includes("有效成长接力率") && researchHtml.includes("目标值，不是线上结果"));
 
 const sceneStart = html.indexOf('<div class="panel active" id="panelDemo">');
 const sceneEnd = html.indexOf('<div class="panel" id="panelReport">');
@@ -83,7 +86,7 @@ check("场景区无研发口吻", bannedVisible.length === 0, bannedVisible.join
 ].forEach((token) => check(`关键机制保留：${token}`, html.includes(token)));
 
 check("画幅变量存在", ["--phone-height", "--phone-ratio", "--left-panel-width"].every((token) => html.includes(token)));
-check("构建标识存在", html.includes('content="career-genui-report-structure-20260728-02"'));
+check("构建标识存在", html.includes('content="career-genui-pm-value-map-20260728-03"'));
 
 for (const item of checks) {
   console.log(`${item.ok ? "PASS" : "FAIL"}  ${item.name}${item.detail ? ` — ${item.detail}` : ""}`);
