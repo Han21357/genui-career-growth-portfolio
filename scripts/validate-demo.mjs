@@ -43,7 +43,8 @@ check("四阶段能力导航保留", ["目标诊断", "理解建构", "练习计
 const stepsMatch = html.match(/const GUIDED_JOURNEY_STEPS=\[([\s\S]*?)\n\];/);
 const storyStepCount = stepsMatch ? (stepsMatch[1].match(/\{key:/g) || []).length : 0;
 check("故事线十阶段", storyStepCount === 10, `发现 ${storyStepCount} 个`);
-check("故事线与能力全集并存", html.includes("开始完整成长路径") && featureIds.every((id) => html.includes(id)));
+check("产品特征优先，故事线作为可选演示", html.includes("把复杂任务变成可操作、可验证、可继续的界面") && html.includes("GUIDED PRODUCT TOUR / 可选演示") && featureIds.every((id) => html.includes(id)));
+check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1"));
 
 const sceneStart = html.indexOf('<div class="panel active" id="panelDemo">');
 const sceneEnd = html.indexOf('<div class="panel" id="panelReport">');
@@ -78,7 +79,7 @@ check("场景区无研发口吻", bannedVisible.length === 0, bannedVisible.join
 ].forEach((token) => check(`关键机制保留：${token}`, html.includes(token)));
 
 check("画幅变量存在", ["--phone-height", "--phone-ratio", "--left-panel-width"].every((token) => html.includes(token)));
-check("构建标识存在", html.includes('content="career-genui-ux-polish-20260728-0122"'));
+check("构建标识存在", html.includes('content="career-genui-product-first-20260728-01"'));
 
 for (const item of checks) {
   console.log(`${item.ok ? "PASS" : "FAIL"}  ${item.name}${item.detail ? ` — ${item.detail}` : ""}`);
