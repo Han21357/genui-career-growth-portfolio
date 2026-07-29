@@ -51,10 +51,11 @@ const manualStart = html.indexOf("function presentGuidedStepManually(step)");
 const manualEnd = html.indexOf("function runGuidedJourneyStep", manualStart);
 const manualBlock = manualStart >= 0 && manualEnd > manualStart ? html.slice(manualStart, manualEnd) : "";
 check("手动模式不复用自动脚本", manualBlock.includes("openFeatureV3(featureId,false)") && !manualBlock.includes("queueGuidedInteraction") && !manualBlock.includes("prepareGuidedFeature") && html.includes('if(GUIDED_JOURNEY.mode==="manual")'));
-check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260729-06"));
+check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260729-07"));
 const marketChapter = researchHtml.indexOf('id="chapter-market"');
 const productChapter = researchHtml.indexOf('id="chapter-product"');
 check("市场报告两篇完整且顺序正确", marketChapter >= 0 && productChapter > marketChapter && researchHtml.includes("第一篇｜市场格局、运营模式与商业化判断") && researchHtml.includes("第二篇｜功能竞争、GenUI 产品机会与设计发心") && researchHtml.includes("report-svg-scroll"));
+check("市场图表使用紧凑展示比例", researchHtml.includes("const displayScale=isValueChain?.86:isMarketMatrix?.92:1.08") && researchHtml.includes("const textScale=isValueChain?1.16:isMarketMatrix?1.1:1") && researchHtml.includes("chart-compact") && !researchHtml.includes("sourceWidth*1.38"));
 check("策略页包含用户任务收益地图", html.includes('id="strategy-user-value"') && html.includes("strategy-decision-responsive") && ["首发核心用户", "高价值场景", "后续验证", "产品衡量指标"].every((token) => html.includes(token)));
 check("市场页包含目标用户与模块价值地图", researchHtml.includes('id="user-value-map"') && ["核心用户", "高价值时刻", "后续合作方", "产品与经营角色"].every((token) => researchHtml.includes(token)));
 check("收益以假设和验证边界表达", html.includes("以上均为待验证的产品假设") && researchHtml.includes("有效成长接力率") && researchHtml.includes("目标值，不是线上结果"));
@@ -92,7 +93,7 @@ check("场景区无研发口吻", bannedVisible.length === 0, bannedVisible.join
 ].forEach((token) => check(`关键机制保留：${token}`, html.includes(token)));
 
 check("画幅变量存在", ["--phone-height", "--phone-ratio", "--left-panel-width"].every((token) => html.includes(token)));
-check("构建标识存在", html.includes('content="career-genui-cpa-storyline-20260729-06"'));
+check("构建标识存在", html.includes('content="career-genui-market-chart-compact-20260729-07"'));
 
 for (const item of checks) {
   console.log(`${item.ok ? "PASS" : "FAIL"}  ${item.name}${item.detail ? ` — ${item.detail}` : ""}`);
