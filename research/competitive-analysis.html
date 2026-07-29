@@ -410,10 +410,47 @@ html.embed-report .shotGrid{width:100%;max-width:100%;overscroll-behavior-x:cont
   html.embed-report .func-source-grid{grid-template-columns:1fr}
   html.embed-report .report-chapter-actions{justify-content:flex-start}
 }
+
+/* Final embedded-report readability floor for the 55% portfolio workspace */
+html.embed-report .section :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+html.embed-report .section th{font-size:13.5px!important;line-height:1.62!important}
+html.embed-report .section :is(small,.tag,em){font-size:12px!important;line-height:1.5!important}
+html.embed-report .section span{font-size:13px!important;line-height:1.62!important}
+html.embed-report .section :is(b,strong){font-size:14px!important;line-height:1.55!important}
+html.embed-report .section h3{font-size:25px!important;line-height:1.32!important}
+html.embed-report .section h4{font-size:18px!important;line-height:1.42!important}
+html.embed-report .section h5{font-size:17px!important;line-height:1.45!important}
+html.embed-report .section :is(.sub,.lead,.companyIntro,.story-caption,.func-impact-note){font-size:14px!important;line-height:1.72!important}
+html.embed-report .section :is(.func-funnel-node p,.func-decision-item p,.func-mech .definition,.func-layer>p,.func-org p,.func-era p,.func-gap p){font-size:14px!important;line-height:1.72!important}
+html.embed-report .section :is(.func-funnel-node b,.func-decision-item b,.func-layer-item b,.func-mech h5,.func-org h5,.func-era h5){font-size:15px!important;line-height:1.5!important}
+html.embed-report .section :is(.func-layer-item,.infer,.proof-list div,.boundary-list p,.gate-list div){font-size:13.5px!important;line-height:1.65!important}
+
+/* Hard minimum: the embedded report never renders readable copy below 13px */
+html.embed-report body.report-font-floor main *{font-size:13px!important}
+html.embed-report body.report-font-floor main :is(div,a,span,small,em,label,i){font-size:13px!important;line-height:1.62!important}
+html.embed-report body.report-font-floor main :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+html.embed-report body.report-font-floor main :is(b,strong){font-size:14.5px!important;line-height:1.55!important}
+html.embed-report body.report-font-floor main th{font-size:13.5px!important;line-height:1.62!important}
+html.embed-report body.report-font-floor.report-font-floor main :is(div,a,span,small,em,label,i){font-size:13px!important;line-height:1.62!important}
+html.embed-report .hero h2{font-size:34px!important;line-height:1.22!important}
+html.embed-report .section h3{font-size:25px!important;line-height:1.32!important}
+html.embed-report .section h4{font-size:19px!important;line-height:1.42!important}
+html.embed-report .section h5{font-size:17px!important;line-height:1.45!important}
+html.embed-report .chapter-marker b{font-size:18px!important}
+html.embed-report .proof-metric b,
+html.embed-report .func-kpi b{font-size:21px!important}
+html.embed-report body.report-font-floor.report-font-floor .hero h2{font-size:30px!important;line-height:1.25!important}
+html.embed-report body.report-font-floor.report-font-floor .hero .lead{font-size:15px!important;line-height:1.7!important}
+html.embed-report body.report-font-floor.report-font-floor .section h3{font-size:25px!important;line-height:1.32!important}
+html.embed-report body.report-font-floor.report-font-floor .section h4{font-size:19px!important;line-height:1.42!important}
+html.embed-report body.report-font-floor.report-font-floor .section h5{font-size:17px!important;line-height:1.45!important}
+html.embed-report body.report-font-floor.report-font-floor .section :is(.sub,.companyIntro,.story-caption,.func-impact-note){font-size:14px!important;line-height:1.72!important}
+html.embed-report body.report-font-floor.report-font-floor .chapter-marker b{font-size:18px!important}
+html.embed-report body.report-font-floor.report-font-floor :is(.proof-metric b,.func-kpi b){font-size:21px!important}
 </style>
 
 </head>
-<body>
+<body class="report-font-floor">
 <div class="page">
 <button aria-label="切换目录" class="navToggle" id="navToggle" type="button"><span class="icon">☰</span><span>目录</span></button>
 <div class="navOverlay" id="navOverlay"></div>

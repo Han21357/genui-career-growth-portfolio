@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="career-genui-pm-value-map-20260728-03" name="build-id"/>
+<meta content="career-genui-readable-report-type-20260729-04" name="build-id"/>
 <link href="data:," rel="icon"/>
 <title>Career GenUI · 职路成长交互作品</title>
 <style>
@@ -774,6 +774,107 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 @media(max-width:1280px){
   .pm-audience-grid,.pm-benefit-grid{grid-template-columns:1fr}
 }
+
+/* Final report readability floor for the 55% workspace */
+#panelReport :is(p,li,td),
+#panelTech :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+#panelReport th,
+#panelTech th{font-size:13px!important;line-height:1.6!important}
+#panelReport :is(small,.strategy2-kicker),
+#panelTech small{font-size:12px!important;line-height:1.5!important}
+#panelReport :is(.strategy2-map-node span,.strategy2-context-core span,.strategy2-life-step span,.strategy2-risk-card span,.model-chain-node span),
+#panelTech :is(.techv8-layer span,.techv8-branch span,.techv8-principle span,.techv8-mode-grid span,.techv8-route-ladder span,.techv8-rule-grid span,.techv8-trust-grid span,.techv8-security-grid span,.techv8-budget-grid span,.techv8-storage-grid span,.techv8-evolution span,.techv8-conclusion-grid span){font-size:13.5px!important;line-height:1.68!important}
+#panelReport :is(.strategy2-title>p,.strategy2-hero p),
+#panelTech :is(.strategy-title p,.techv8-hero p,.tech-section>p){font-size:14.5px!important;line-height:1.75!important}
+#panelReport :is(.strategy2-context-card b,.strategy2-commit-card b,.strategy2-relay-head b,.strategy2-risk-card b,.pm-benefit-card b),
+#panelTech :is(.techv8-card b,.techv8-layer b,.techv8-branch b){font-size:15px!important;line-height:1.5!important}
+#panelReport :is(.strategy2-recipe-flow div,.strategy2-example-flow div,.strategy2-relay-flow div),
+#panelTech :is(.techv8-pipeline span,.techv8-commit-flow span,.techv8-life-band span){font-size:13.5px!important;line-height:1.65!important}
+#panelReport .strategy2-details summary,
+#panelTech .techv8-details summary{font-size:14px!important}
+
+/* Scene experience: the product view follows the same reading scale */
+.console h1{font-size:22px!important}
+.console-head p{font-size:13px!important;line-height:1.5!important}
+.console-tabs button{font-size:13.5px!important;padding:9px 12px!important}
+.toolbtn{font-size:12.5px!important;padding:8px 10px!important}
+#panelDemo :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+#panelDemo :is(small,.journey-kicker,.journey-case,.journey-card-tag){font-size:12.5px!important;line-height:1.5!important}
+#panelDemo :is(.journey-start>span,.journey-card>span:last-child,.journey-panel-head p,.journey-overview p,.product-spine span){font-size:14px!important;line-height:1.72!important}
+#panelDemo :is(.journey-card b,.journey-live-card h3,.journey-panel-head h2){font-size:18px!important;line-height:1.42!important}
+#panelDemo :is(.journey-step b,.guided-stage-strip i,.guided-case,.journey-live-metrics span,.journey-next button,.journey-report){font-size:13px!important;line-height:1.55!important}
+
+/* Dense diagrams become readable layouts instead of shrinking their copy */
+#panelReport .strategy2-decision-layout{grid-template-columns:1fr!important}
+#panelReport .strategy2-decision-svg{height:auto!important;min-height:430px}
+#panelReport .strategy2-svg-title{font-size:15px!important}
+#panelReport .strategy2-svg-copy{font-size:12.5px!important}
+#panelReport :is(.strategy2-svg-mini,.strategy2-svg-pill-text){font-size:11.5px!important}
+#panelTech .techv8-goals,
+#panelTech .techv8-mode-grid,
+#panelTech .techv8-budget-grid,
+#panelTech .techv8-protocol-grid,
+#panelTech .techv8-storage-grid,
+#panelTech .techv8-evolution,
+#panelTech .techv8-conclusion-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#panelTech .techv8-route-ladder,
+#panelTech .techv8-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#panelTech .techv8-split,
+#panelTech .techv8-branch{grid-template-columns:1fr!important}
+#panelTech .techv8-life-band{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media(max-width:1100px){
+  #panelTech :is(.techv8-goals,.techv8-mode-grid,.techv8-budget-grid,.techv8-protocol-grid,.techv8-storage-grid,.techv8-evolution,.techv8-conclusion-grid,.techv8-route-ladder,.techv8-metric-grid){grid-template-columns:1fr!important}
+  #panelTech .techv8-life-band{grid-template-columns:1fr 1fr!important}
+}
+
+/* Hard minimum: no readable report text may fall below 13px */
+#panelDemo *,
+#panelReport *,
+#panelTech *{font-size:13px!important}
+#panelDemo :is(p,li,td),
+#panelReport :is(p,li,td),
+#panelTech :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+#panelDemo :is(button,b,strong),
+#panelReport :is(b,strong),
+#panelTech :is(b,strong){font-size:14.5px!important;line-height:1.55!important}
+#panelReport th,
+#panelTech th{font-size:13.5px!important;line-height:1.62!important}
+#panelTech :is(pre,.event,.techv8-flow-label){font-size:13px!important;line-height:1.65!important}
+#panelDemo .journey-overview h2{font-size:32px!important;line-height:1.28!important}
+#panelDemo .journey-start>b{font-size:24px!important;line-height:1.35!important}
+#panelDemo .journey-panel-head h2{font-size:20px!important}
+#panelDemo .journey-card b{font-size:18px!important}
+#panelDemo .journey-live-card h3{font-size:18px!important}
+#panelReport .strategy2-hero h2{font-size:32px!important;line-height:1.24!important}
+#panelReport .strategy2-title h2{font-size:21px!important}
+#panelReport .pm-audience-card h3{font-size:18px!important}
+#panelReport .strategy2-context-core b{font-size:18px!important}
+#panelReport .strategy2-summary b{font-size:21px!important}
+#panelReport .strategy2-svg-title{font-size:15px!important}
+#panelReport .strategy2-svg-copy{font-size:13px!important}
+#panelReport :is(.strategy2-svg-mini,.strategy2-svg-pill-text){font-size:12px!important}
+#panelTech .techv8-hero h2{font-size:32px!important;line-height:1.25!important}
+#panelTech .strategy-title h2,
+#panelTech .tech-section h2{font-size:21px!important}
+#panelTech :is(.techv8-card h3,.techv8-card h4){font-size:17px!important}
+
+/* Specificity-safe floors overriding legacy component declarations */
+#panelDemo#panelDemo :is(span,small,i,em,label,button,summary),
+#panelReport#panelReport :is(span,small,i,em,label,button,summary),
+#panelTech#panelTech :is(span,small,i,em,label,button,summary,pre){font-size:13px!important;line-height:1.6!important}
+#panelDemo#panelDemo :is(p,li,td),
+#panelReport#panelReport :is(p,li,td),
+#panelTech#panelTech :is(p,li,td){font-size:14px!important;line-height:1.72!important}
+#panelDemo#panelDemo :is(b,strong),
+#panelReport#panelReport :is(b,strong),
+#panelTech#panelTech :is(b,strong){font-size:14.5px!important;line-height:1.55!important}
+#panelReport#panelReport th,
+#panelTech#panelTech th{font-size:13.5px!important;line-height:1.62!important}
+#panelReport#panelReport text{font-size:13px!important;line-height:1.55!important}
+#panelTech#panelTech :is(.event,.techv8-flow-label){font-size:13px!important;line-height:1.65!important}
+#panelDemo#panelDemo .journey-overview h2{font-size:28px!important;line-height:1.3!important}
+#panelReport#panelReport .strategy2-hero h2,
+#panelTech#panelTech .techv8-hero h2{font-size:30px!important;line-height:1.28!important}
 </style>
 
 </head>
@@ -796,7 +897,7 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 <section class="journey-panel" data-stage-panel="apply"><div class="journey-panel-head"><div><h2>把能力转化成真实场景表现</h2><p>通过案例、表达和面试训练，把学习结果转成职业证据。</p></div><span>4 项能力</span></div><div class="journey-grid"><button class="journey-card" data-open-feature="adaptive_interview"><span class="journey-card-top"><span class="journey-card-tag">面试</span><span class="journey-card-arrow">›</span></span><b>自适应面试训练</b><span>连续追问、证据评分并生成补强任务。</span></button><button class="journey-card" data-open-feature="case_roundtable"><span class="journey-card-top"><span class="journey-card-tag">案例</span><span class="journey-card-arrow">›</span></span><b>多角色案例研讨</b><span>归纳共识、争议、缺失证据和决策风险。</span></button><button class="journey-card" data-open-feature="situational_roleplay"><span class="journey-card-top"><span class="journey-card-tag">表达</span><span class="journey-card-arrow">›</span></span><b>三分钟情境表达</b><span>针对具体表达缺口进行短时角色练习。</span></button><button class="journey-card" data-open-feature="resume_evidence_editor"><span class="journey-card-top"><span class="journey-card-tag">简历</span><span class="journey-card-arrow">›</span></span><b>简历量化改写</b><span>把项目过程重构为可验证的成果证据。</span></button></div></section>
 <section class="journey-live"><div class="journey-live-card"><small>LIVE GROWTH STATE</small><h3>当前成长状态</h3><div class="journey-live-metrics"><div><b>45%</b><span>重点能力</span></div><div><b>3</b><span>今日任务</span></div><div><b>2</b><span>待补证据</span></div></div></div><div class="journey-live-card"><small>NEXT BEST ACTION</small><h3>推荐接力</h3><div class="journey-next"><button data-open-feature="job_match_workspace"><span>先完成岗位匹配</span><span>→</span></button><button data-open-feature="material_intake"><span>导入一份真实材料</span><span>›</span></button></div></div></section><button class="journey-report" data-console-page="report"><span>查看 GenUI 模块运行策略</span><span>›</span></button></div>
 
-<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260728-03" title="市场调研报告"></iframe></div>
+<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260729-04" title="市场调研报告"></iframe></div>
 
 <div class="panel" id="panelReport">
 <section class="strategy2-hero">
