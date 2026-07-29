@@ -45,7 +45,13 @@ const stepsMatch = html.match(/const GUIDED_JOURNEY_STEPS=\[([\s\S]*?)\n\];/);
 const storyStepCount = stepsMatch ? (stepsMatch[1].match(/\{key:/g) || []).length : 0;
 check("故事线十阶段", storyStepCount === 10, `发现 ${storyStepCount} 个`);
 check("产品特征优先，故事线作为可选演示", html.includes("把复杂任务变成可操作、可验证、可继续的界面") && html.includes("GUIDED PRODUCT TOUR / 可选演示") && featureIds.every((id) => html.includes(id)));
-check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260729-05"));
+const guidedBlock = stepsMatch ? stepsMatch[1] : "";
+check("推荐故事线统一为 CPA 场景", guidedBlock.includes("CPA 会计") && guidedBlock.includes("审计助理") && guidedBlock.includes("财务分析") && !guidedBlock.includes("AI 产品") && !guidedBlock.includes("模型评测"));
+const manualStart = html.indexOf("function presentGuidedStepManually(step)");
+const manualEnd = html.indexOf("function runGuidedJourneyStep", manualStart);
+const manualBlock = manualStart >= 0 && manualEnd > manualStart ? html.slice(manualStart, manualEnd) : "";
+check("手动模式不复用自动脚本", manualBlock.includes("openFeatureV3(featureId,false)") && !manualBlock.includes("queueGuidedInteraction") && !manualBlock.includes("prepareGuidedFeature") && html.includes('if(GUIDED_JOURNEY.mode==="manual")'));
+check("市场调研独立页签", html.includes('data-console-page="market"') && html.includes('id="panelMarket"') && html.includes("../research/competitive-analysis.html?embed=1&amp;v=20260729-06"));
 const marketChapter = researchHtml.indexOf('id="chapter-market"');
 const productChapter = researchHtml.indexOf('id="chapter-product"');
 check("市场报告两篇完整且顺序正确", marketChapter >= 0 && productChapter > marketChapter && researchHtml.includes("第一篇｜市场格局、运营模式与商业化判断") && researchHtml.includes("第二篇｜功能竞争、GenUI 产品机会与设计发心") && researchHtml.includes("report-svg-scroll"));
@@ -86,7 +92,7 @@ check("场景区无研发口吻", bannedVisible.length === 0, bannedVisible.join
 ].forEach((token) => check(`关键机制保留：${token}`, html.includes(token)));
 
 check("画幅变量存在", ["--phone-height", "--phone-ratio", "--left-panel-width"].every((token) => html.includes(token)));
-check("构建标识存在", html.includes('content="career-genui-responsive-report-components-20260729-05"'));
+check("构建标识存在", html.includes('content="career-genui-cpa-storyline-20260729-06"'));
 
 for (const item of checks) {
   console.log(`${item.ok ? "PASS" : "FAIL"}  ${item.name}${item.detail ? ` — ${item.detail}` : ""}`);
