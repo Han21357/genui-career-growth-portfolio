@@ -447,6 +447,28 @@ html.embed-report body.report-font-floor.report-font-floor .section h5{font-size
 html.embed-report body.report-font-floor.report-font-floor .section :is(.sub,.companyIntro,.story-caption,.func-impact-note){font-size:14px!important;line-height:1.72!important}
 html.embed-report body.report-font-floor.report-font-floor .chapter-marker b{font-size:18px!important}
 html.embed-report body.report-font-floor.report-font-floor :is(.proof-metric b,.func-kpi b){font-size:21px!important}
+
+/* Enlarged report copy must reflow instead of being clipped by legacy card heights */
+html.embed-report .companyShots,
+html.embed-report .shotGrid{align-items:stretch;overflow-y:visible}
+html.embed-report .companyShots .shot,
+html.embed-report .shotGrid .shot{height:auto!important;min-height:0!important;align-self:stretch}
+html.embed-report .shot :is(p,.infer){
+  display:block!important;
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+  -webkit-box-orient:initial!important;
+  -webkit-line-clamp:unset!important;
+}
+
+/* Dense SVG charts become zoomed, horizontally browsable report components */
+html.embed-report :is(.framework,.market,.value-chain,.flowWrap){grid-template-columns:minmax(0,1fr)!important}
+html.embed-report :is(.framework,.market,.value-chain,.flowWrap,.panel,.matrixCard,.value-map,.flowCard,.econCard,.companyBlock){min-width:0!important;max-width:100%!important}
+html.embed-report .report-svg-scroll{position:relative;width:100%;min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;padding:34px 0 10px;scrollbar-gutter:stable;overscroll-behavior-x:contain}
+html.embed-report .report-svg-scroll::before{content:"左右滑动查看完整图表  →";position:absolute;left:0;top:4px;padding:5px 9px;border-radius:999px;background:#edf8f2;color:#167044;font-size:13px!important;font-weight:800;line-height:1.4!important}
+html.embed-report .report-svg-scroll svg{display:block;max-width:none!important;height:auto!important}
+html.embed-report .report-svg-scroll:focus-visible{outline:3px solid rgba(18,185,129,.26);outline-offset:2px}
 </style>
 
 </head>
@@ -1469,6 +1491,30 @@ const secs=[...document.querySelectorAll('.hero,.section')];const navs=[...docum
     buttons.forEach(x=>x.classList.toggle('active',x===btn));
     panels.forEach(x=>x.classList.toggle('active',x.dataset.funcPanel===id));
   }));
+})();
+</script>
+<script>
+(function(){
+  if(!document.documentElement.classList.contains('embed-report')) return;
+  const charts=[...document.querySelectorAll('.chainSvg,.matrixCard>svg,.value-svg,.svgFlow')];
+  charts.forEach((svg,index)=>{
+    if(svg.parentElement?.classList.contains('report-svg-scroll')) return;
+    const viewBox=svg.viewBox?.baseVal;
+    const sourceWidth=viewBox?.width||Number(svg.getAttribute('width'))||980;
+    const wrap=document.createElement('div');
+    wrap.className='report-svg-scroll';
+    wrap.tabIndex=0;
+    wrap.setAttribute('role','region');
+    wrap.setAttribute('aria-label',`可横向浏览的报告图表 ${index+1}`);
+    svg.parentNode.insertBefore(wrap,svg);
+    wrap.appendChild(svg);
+    svg.style.setProperty('width',`${Math.round(sourceWidth*1.38)}px`,'important');
+    svg.style.setProperty('min-width',`${Math.round(sourceWidth*1.38)}px`,'important');
+    svg.querySelectorAll('text[font-size]').forEach(text=>{
+      const sourceSize=Number.parseFloat(text.getAttribute('font-size'));
+      if(Number.isFinite(sourceSize)) text.style.setProperty('font-size',`${(sourceSize*.82).toFixed(2)}px`,'important');
+    });
+  });
 })();
 </script>
 

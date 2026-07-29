@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="career-genui-readable-report-type-20260729-04" name="build-id"/>
+<meta content="career-genui-responsive-report-components-20260729-05" name="build-id"/>
 <link href="data:," rel="icon"/>
 <title>Career GenUI · 职路成长交互作品</title>
 <style>
@@ -868,6 +868,42 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 #panelDemo#panelDemo :is(b,strong),
 #panelReport#panelReport :is(b,strong),
 #panelTech#panelTech :is(b,strong){font-size:14.5px!important;line-height:1.55!important}
+
+/* Responsive decision component: replaces the fixed SVG once report copy is enlarged */
+#panelReport .strategy2-decision-svg{display:none!important}
+#panelReport .strategy-decision-responsive{display:grid;gap:12px;padding:16px;border:1px solid #dfe7e2;border-radius:12px;background:#f8fbf9}
+#panelReport .strategy-decision-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+#panelReport .strategy-decision-head h3{margin:2px 0 4px;font-size:19px!important;line-height:1.35!important;color:#173625}
+#panelReport .strategy-decision-head p{margin:0;color:#607068}
+#panelReport .strategy-decision-head>span{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:#fff7e9;color:#8d611c;font-weight:800}
+#panelReport .strategy-decision-main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#panelReport .strategy-decision-node{position:relative;min-width:0;min-height:0;padding:14px 14px 14px 52px;border:1px solid #cfdcd4;border-radius:11px;background:#fff}
+#panelReport .strategy-decision-node::after{content:"满足 → 继续判断";display:block;margin-top:8px;padding-top:7px;border-top:1px dashed #d7e3dc;color:#278453;font-size:12.5px!important;font-weight:800}
+#panelReport .strategy-decision-node.commit{background:#153e29;color:#fff;border-color:#153e29}
+#panelReport .strategy-decision-node.commit::after{content:"进入 GenUI 运行时";border-color:rgba(255,255,255,.24);color:#b7ebca}
+#panelReport .strategy-decision-node i{position:absolute;left:14px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#eaf7ef;color:#278453;font-style:normal;font-weight:900}
+#panelReport .strategy-decision-node.commit i{background:rgba(255,255,255,.14);color:#fff}
+#panelReport .strategy-decision-node b{display:block;margin-bottom:4px}
+#panelReport .strategy-decision-node p{margin:0;color:#607068}
+#panelReport .strategy-decision-node.commit p{color:#d9eee1}
+#panelReport .strategy-decision-branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#panelReport .strategy-decision-branch{min-width:0;padding:12px 13px;border:1px solid #cfdcd4;border-radius:10px;background:#fff}
+#panelReport .strategy-decision-branch.stop{background:#fff7e9;border-color:#e0b968}
+#panelReport .strategy-decision-branch b{display:block;margin-bottom:4px}
+#panelReport .strategy-decision-branch p{margin:0;color:#607068}
+#panelReport .strategy-decision-footer{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#panelReport .strategy-decision-footer article{min-width:0;padding:13px 14px;border:1px solid #cfdcd4;border-radius:10px;background:#fff}
+#panelReport .strategy-decision-footer article:first-child{background:#fff2f2;border-color:#df9b9b}
+#panelReport .strategy-decision-footer article:last-child{background:#edf9f1;border-color:#6dc58f}
+#panelReport .strategy-decision-footer b{display:block;margin-bottom:4px}
+#panelReport .strategy-decision-footer p{margin:0;color:#607068}
+@media(max-width:1120px){
+  #panelReport .strategy-decision-head{display:grid}
+  #panelReport .strategy-decision-head>span{justify-self:start}
+  #panelReport :is(.strategy-decision-main,.strategy-decision-footer){grid-template-columns:1fr}
+  #panelReport .strategy-decision-branches{grid-template-columns:1fr 1fr}
+  #panelReport .strategy-decision-branches article:last-child{grid-column:1/-1}
+}
 #panelReport#panelReport th,
 #panelTech#panelTech th{font-size:13.5px!important;line-height:1.62!important}
 #panelReport#panelReport text{font-size:13px!important;line-height:1.55!important}
@@ -897,7 +933,7 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 <section class="journey-panel" data-stage-panel="apply"><div class="journey-panel-head"><div><h2>把能力转化成真实场景表现</h2><p>通过案例、表达和面试训练，把学习结果转成职业证据。</p></div><span>4 项能力</span></div><div class="journey-grid"><button class="journey-card" data-open-feature="adaptive_interview"><span class="journey-card-top"><span class="journey-card-tag">面试</span><span class="journey-card-arrow">›</span></span><b>自适应面试训练</b><span>连续追问、证据评分并生成补强任务。</span></button><button class="journey-card" data-open-feature="case_roundtable"><span class="journey-card-top"><span class="journey-card-tag">案例</span><span class="journey-card-arrow">›</span></span><b>多角色案例研讨</b><span>归纳共识、争议、缺失证据和决策风险。</span></button><button class="journey-card" data-open-feature="situational_roleplay"><span class="journey-card-top"><span class="journey-card-tag">表达</span><span class="journey-card-arrow">›</span></span><b>三分钟情境表达</b><span>针对具体表达缺口进行短时角色练习。</span></button><button class="journey-card" data-open-feature="resume_evidence_editor"><span class="journey-card-top"><span class="journey-card-tag">简历</span><span class="journey-card-arrow">›</span></span><b>简历量化改写</b><span>把项目过程重构为可验证的成果证据。</span></button></div></section>
 <section class="journey-live"><div class="journey-live-card"><small>LIVE GROWTH STATE</small><h3>当前成长状态</h3><div class="journey-live-metrics"><div><b>45%</b><span>重点能力</span></div><div><b>3</b><span>今日任务</span></div><div><b>2</b><span>待补证据</span></div></div></div><div class="journey-live-card"><small>NEXT BEST ACTION</small><h3>推荐接力</h3><div class="journey-next"><button data-open-feature="job_match_workspace"><span>先完成岗位匹配</span><span>→</span></button><button data-open-feature="material_intake"><span>导入一份真实材料</span><span>›</span></button></div></div></section><button class="journey-report" data-console-page="report"><span>查看 GenUI 模块运行策略</span><span>›</span></button></div>
 
-<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260729-04" title="市场调研报告"></iframe></div>
+<div class="panel" id="panelMarket"><iframe class="report-frame" loading="lazy" src="../research/competitive-analysis.html?embed=1&amp;v=20260729-05" title="市场调研报告"></iframe></div>
 
 <div class="panel" id="panelReport">
 <section class="strategy2-hero">
@@ -988,6 +1024,27 @@ button:disabled{opacity:.46!important;cursor:not-allowed!important;filter:satura
 <rect class="strategy2-svg-box risk" x="28" y="278" width="315" height="52" rx="10"/><text class="strategy2-svg-title" x="48" y="301">风险与端侧校验</text><text class="strategy2-svg-mini" x="48" y="318">高风险场景增加来源与复核；小屏环境降低首屏密度。</text>
 <path class="strategy2-svg-line" marker-end="url(#strategyArrow)" d="M343 304 H400"/><rect class="strategy2-svg-box active" x="400" y="278" width="292" height="52" rx="10"/><text class="strategy2-svg-title" x="420" y="301">选择显示形态与确认点</text><text class="strategy2-svg-mini" x="420" y="318">消息卡 → Bottom Sheet → 临时全屏 → 结果卡</text>
 </svg>
+<div class="strategy-decision-responsive" aria-label="GenUI 触发决策树">
+  <header class="strategy-decision-head">
+    <div><small>DECISION FLOW / 触发决策</small><h3>从用户任务到交互形态</h3><p>五次判断完成后，系统才创建正式 Artifact；任一条件不满足，就采用更轻的承载方式。</p></div>
+    <span>不是所有任务都需要界面</span>
+  </header>
+  <div class="strategy-decision-main">
+    <article class="strategy-decision-node"><i>01</i><b>需要用户操作？</b><p>是否需要选择、排序、拖动、修改或连续训练。</p></article>
+    <article class="strategy-decision-node"><i>02</i><b>结构足够稳定？</b><p>题目、节点、字段或任务是否可被 Schema 建模与校验。</p></article>
+    <article class="strategy-decision-node"><i>03</i><b>结果影响下一步？</b><p>操作结果是否会改变计划、掌握度、证据或后续表现。</p></article>
+    <article class="strategy-decision-node commit"><i>04</i><b>创建 Artifact</b><p>条件满足后进入 GenUI 运行时，并声明确认点与写回边界。</p></article>
+  </div>
+  <div class="strategy-decision-branches">
+    <article class="strategy-decision-branch stop"><b>不需要操作 → 保留文本回答</b><p>适用于解释、来源说明或一次性建议。</p></article>
+    <article class="strategy-decision-branch stop"><b>结构不稳定 → 先补充信息</b><p>通过追问或轻量 Sheet 确认必要字段。</p></article>
+    <article class="strategy-decision-branch"><b>不写长期状态 → 本地交互</b><p>只完成当前局部任务，不污染长期成长记录。</p></article>
+  </div>
+  <div class="strategy-decision-footer">
+    <article><b>风险与端侧校验</b><p>高风险场景增加来源与复核；小屏环境降低首屏密度并拆分步骤。</p></article>
+    <article><b>选择显示形态与确认点</b><p>按任务复杂度使用消息卡、Bottom Sheet、临时全屏或结果卡。</p></article>
+  </div>
+</div>
 <div class="strategy2-table-wrap"><table class="strategy2-table" style="min-width:0"><thead><tr><th>判断信号</th><th>系统问题</th><th>触发标准</th><th>未满足时</th></tr></thead><tbody>
 <tr><th>操作需求</th><td>用户是否需要修改、选择、排序、验证或连续作答？</td><td class="good">至少包含一项有意义操作</td><td>继续文本回答</td></tr>
 <tr><th>结构稳定性</th><td>任务能否表达为题目、节点、字段、任务或状态序列？</td><td class="good">Schema 可校验且字段充分</td><td>先追问或轻量确认</td></tr>
