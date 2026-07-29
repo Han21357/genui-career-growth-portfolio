@@ -21,6 +21,7 @@ GitHub Pages 中发布的是对外展示副本，已移除特定平台名称、�
 
 设计与校验材料：
 
+- [`docs/project-handoff.md`](docs/project-handoff.md)：项目定位、完整演示动线、产品机制、代码结构、验证与发布交接。
 - [`docs/demo-storyline.md`](docs/demo-storyline.md)：对外演示故事线与元宝主模型进入 GenUI 的决策链。
 - [`docs/ux-reference-audit.md`](docs/ux-reference-audit.md)：开源交互方案调研与采用边界。
 - [`docs/ux-validation-report.md`](docs/ux-validation-report.md)：响应式、状态、可访问性与完整动线校验。
@@ -57,6 +58,7 @@ python3 -m http.server 8000
 │   └── index.html
 ├── docs/
 │   ├── demo-storyline.md
+│   ├── project-handoff.md
 │   ├── ux-reference-audit.md
 │   └── ux-validation-report.md
 ├── research/
